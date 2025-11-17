@@ -24,6 +24,25 @@ export default function Navbar() {
     { label: 'Collaborate', href: '#collaborate' },
   ]
 
+  const handleNavClick = (href: string) => {
+    setIsOpen(false) // Close mobile menu first
+
+    setTimeout(() => {
+      const element = document.querySelector(href)
+      if (element) {
+        const navbar = document.querySelector('nav')
+        const navbarHeight = navbar ? navbar.offsetHeight : 80
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY
+        const offsetPosition = elementPosition - navbarHeight
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      }
+    }, 100) // Small delay to allow menu animation to complete
+  }
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -43,13 +62,13 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-8 items-center">
           {navItems.map((item) => (
-            <a
+            <button
               key={item.label}
-              href={item.href}
+              onClick={() => handleNavClick(item.href)}
               className="text-sm font-medium hover:text-primary transition-colors duration-300"
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </div>
 
@@ -88,14 +107,13 @@ export default function Navbar() {
       >
         <div className="px-4 py-4 space-y-2 bg-background/80">
           {navItems.map((item) => (
-            <a
+            <button
               key={item.label}
-              href={item.href}
-              className="block px-4 py-2 rounded-lg hover:bg-primary/10 transition-colors"
-              onClick={() => setIsOpen(false)}
+              onClick={() => handleNavClick(item.href)}
+              className="block px-4 py-2 rounded-lg hover:bg-primary/10 transition-colors text-left w-full"
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </div>
       </motion.div>

@@ -6,7 +6,7 @@ import { MessageCircle } from 'lucide-react'
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false)
-  const whatsappNumber = '234XXXXXXXXXX' // Placeholder - customizable
+  const whatsappNumber = '2349039335282' // Milez Comedy WhatsApp number
 
   return (
     <motion.div
