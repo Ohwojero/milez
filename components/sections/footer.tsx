@@ -32,11 +32,8 @@ export default function Footer() {
           >
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <a href="#home" className="hover:text-primary transition-colors">
+              <a href="#home" className="hover:text-primary transition-colors block">
                 Home
-              </a>
-              <a href="#about" className="hover:text-primary transition-colors block">
-                About
               </a>
               <a href="#videos" className="hover:text-primary transition-colors block">
                 Videos
@@ -79,7 +76,7 @@ export default function Footer() {
           className="text-center text-sm text-muted-foreground flex items-center justify-center gap-1"
         >
           <span>© {currentYear} Milez Comedy. All rights reserved. Made with</span>
-          <Heart size={16} className="fill-accent text-accent" />
+          <Heart size={16} className="fill-primary text-primary" />
         </motion.div>
       </div>
     </footer>

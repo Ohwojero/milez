@@ -2,50 +2,50 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Zap, Lightbulb, Mic, Users, Film, TrendingUp } from 'lucide-react'
+import { Lightbulb, Video, Scissors, Music, Share2, MessageSquare, Sparkles } from 'lucide-react'
 
-const processStages = [
+const stages = [
   {
-    id: 1,
+    step: '01',
+    title: 'Concept & Punchline',
+    tag: 'Ideation',
+    description: 'Transforming everyday relatable African moments and hilarious realities into gold punchlines.',
     icon: Lightbulb,
-    title: 'Joke Crafting',
-    description: 'Brainstorming hilarious punchlines and relatable scenarios that hit the funny bone',
-    color: 'from-yellow-500 to-orange-500',
   },
   {
-    id: 2,
-    icon: Mic,
+    step: '02',
+    title: 'Character Immersion',
+    tag: 'Acting Range',
+    description: 'Embodying distinct personas—the strict lecturer, stubborn roommate, and the street-smart friend.',
+    icon: Video,
+  },
+  {
+    step: '03',
     title: 'Skit Shooting',
-    description: 'Capturing raw comedic energy and authentic character performances on camera',
-    color: 'from-purple-500 to-pink-500',
+    tag: 'Production',
+    description: 'Capturing raw comedic energy on camera with signature facial expressions and improvised timing.',
+    icon: Sparkles,
   },
   {
-    id: 3,
-    icon: Film,
-    title: 'Edit Magic',
-    description: 'Transforming raw footage into cinematic comedy gold with timing and effects',
-    color: 'from-blue-500 to-cyan-500',
+    step: '04',
+    title: 'Sound FX & Timing',
+    tag: 'Post-Production',
+    description: 'Precision editing, comedic sound drops, and reaction pauses calibrated for maximum laughter.',
+    icon: Music,
   },
   {
-    id: 4,
-    icon: Zap,
-    title: 'Punchline Polish',
-    description: 'Fine-tuning delivery, reactions, and comedic timing for maximum laughs',
-    color: 'from-green-500 to-emerald-500',
+    step: '05',
+    title: 'Viral Distribution',
+    tag: 'Launch',
+    description: 'Synchronized cross-platform release optimized for TikTok, Instagram Reels, and YouTube Shorts.',
+    icon: Share2,
   },
   {
-    id: 5,
-    icon: TrendingUp,
-    title: 'Viral Launch',
-    description: 'Strategic release across social platforms to maximize comedy reach and engagement',
-    color: 'from-indigo-500 to-violet-500',
-  },
-  {
-    id: 6,
-    icon: Users,
-    title: 'Fan Laughter',
-    description: 'Building a community of comedy lovers through interaction and shared humor',
-    color: 'from-rose-500 to-red-500',
+    step: '06',
+    title: 'Community Banter',
+    tag: 'Fan Engagement',
+    description: 'Connecting directly with millions of fans in the comment section and igniting viral trends.',
+    icon: MessageSquare,
   },
 ]
 
@@ -53,75 +53,101 @@ export default function Gallery() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
 
   return (
-    <section id="gallery" ref={ref} className="relative py-20 md:py-32 px-4 overflow-hidden">
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl" />
+    <section id="gallery" ref={ref} className="relative py-20 px-4 sm:px-6 lg:px-8 bg-background border-t border-border/60">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 right-10 w-80 h-80 bg-primary/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent">
-            Comedy Creation Chronicles
+          <span className="text-xs font-bold uppercase tracking-wider text-primary mb-2 inline-block">
+            Behind The Scenes
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-foreground">
+            Comedy Creation <span className="text-primary">Chronicles</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From punchline to viral sensation: the hilarious journey of crafting comedy gold
+          <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-xl mx-auto">
+            The 6-stage creative pipeline behind every viral skit and memorable comedy moment.
           </p>
         </motion.div>
 
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {processStages.map((stage, index) => {
+        {/* 6-Stage Process Grid - Compact, Sleek & Sequential */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {stages.map((stage, index) => {
             const Icon = stage.icon
             return (
               <motion.div
-                key={stage.id}
-                initial={{ opacity: 0, y: 20 }}
+                key={stage.step}
+                initial={{ opacity: 0, y: 15 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="group relative"
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ y: -4 }}
+                className="group relative bg-card border border-border hover:border-primary/50 rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-sm hover:shadow-lg hover:shadow-primary/10 flex flex-col justify-between"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
+                {/* Top Row: Icon + Step Pill */}
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 group-hover:bg-primary text-primary group-hover:text-primary-foreground flex items-center justify-center transition-colors duration-200">
+                      <Icon className="w-5 h-5" />
+                    </div>
 
-                <div className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-2xl p-8 h-full group-hover:border-white/40 transition-all duration-300">
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${stage.color} p-3 mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-full h-full text-white" />
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[11px] font-semibold text-muted-foreground group-hover:text-primary transition-colors">
+                        STAGE
+                      </span>
+                      <span className="text-xs font-extrabold px-2 py-0.5 rounded-md bg-muted text-foreground group-hover:bg-primary/20 group-hover:text-primary transition-colors">
+                        {stage.step}
+                      </span>
+                    </div>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3 text-foreground">{stage.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{stage.description}</p>
+                  <span className="text-[11px] font-semibold text-primary uppercase tracking-wider block mb-1">
+                    {stage.tag}
+                  </span>
 
-                  <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${stage.color} rounded-full w-0 group-hover:w-full transition-all duration-500`} />
+                  <h3 className="text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                    {stage.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {stage.description}
+                  </p>
+                </div>
+
+                {/* Bottom subtle progress line */}
+                <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between text-[11px] text-muted-foreground">
+                  <span className="font-medium">Step {index + 1} of 6</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-border group-hover:bg-primary transition-colors" />
                 </div>
               </motion.div>
             )
           })}
-        </motion.div>
+        </div>
 
+        {/* Compact Integrated Impact Strip */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-10 p-5 sm:p-6 rounded-2xl bg-card border border-border flex flex-col sm:flex-row items-center justify-around gap-4 text-center divide-y sm:divide-y-0 sm:divide-x divide-border"
         >
-          {[
-            { label: 'Content Pieces', value: '200+' },
-            { label: 'Hours of Content', value: '500+' },
-            { label: 'Quality Standards', value: '100%' },
-          ].map((stat, idx) => (
-            <div
-              key={idx}
-              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center group-hover:border-white/40 transition-all duration-300"
-            >
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-500 to-cyan-500 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </div>
-              <p className="text-muted-foreground">{stat.label}</p>
-            </div>
-          ))}
+          <div className="w-full sm:w-auto px-4 py-1">
+            <p className="text-2xl sm:text-3xl font-extrabold text-primary">500+</p>
+            <p className="text-xs text-muted-foreground font-medium mt-0.5">Original Comedy Skits</p>
+          </div>
+          <div className="w-full sm:w-auto px-4 py-1">
+            <p className="text-2xl sm:text-3xl font-extrabold text-foreground">50M+</p>
+            <p className="text-xs text-muted-foreground font-medium mt-0.5">Organic Content Views</p>
+          </div>
+          <div className="w-full sm:w-auto px-4 py-1">
+            <p className="text-2xl sm:text-3xl font-extrabold text-primary">100%</p>
+            <p className="text-xs text-muted-foreground font-medium mt-0.5">Viral Consistency</p>
+          </div>
         </motion.div>
       </div>
     </section>

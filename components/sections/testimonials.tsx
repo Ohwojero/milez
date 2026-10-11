@@ -75,18 +75,10 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" ref={ref} className="relative py-20 md:py-32 px-4 overflow-hidden">
-      {/* Background gradient orbs */}
+      {/* Background ambient glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div
-          animate={{ y: [0, 40, 0] }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="absolute -right-32 -top-32 w-96 h-96 rounded-full bg-gradient-to-r from-indigo-500/10 to-cyan-500/10 blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [0, -40, 0] }}
-          transition={{ duration: 10, repeat: Infinity, delay: 1 }}
-          className="absolute -left-32 -bottom-32 w-96 h-96 rounded-full bg-gradient-to-r from-cyan-500/10 to-indigo-500/10 blur-3xl"
-        />
+        <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -94,10 +86,10 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-            What Fans Are Saying
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
+            What Fans <span className="text-primary">Are Saying</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover the impact of Milez Comedy through authentic fan experiences
@@ -132,8 +124,7 @@ export default function Testimonials() {
                       whileHover={{ scale: 1.1, rotate: 10 }}
                       className="relative"
                     >
-                      <Quote className="w-6 h-6 text-indigo-600/60 dark:text-cyan-400/60 mb-3 group-hover:text-indigo-600 dark:group-hover:text-cyan-400 transition-colors duration-300" />
-                      <div className="absolute inset-0 bg-indigo-600/20 dark:bg-cyan-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <Quote className="w-6 h-6 text-primary mb-3" />
                     </motion.div>
 
                     {/* Stars with enhanced animation */}
@@ -151,7 +142,7 @@ export default function Testimonials() {
                               size={16}
                               className={`${
                                 i < testimonial.rating
-                                  ? 'fill-yellow-400 text-yellow-400'
+                                  ? 'fill-amber-400 text-amber-400'
                                   : 'text-gray-300 dark:text-gray-600'
                               } transition-all duration-300 group-hover:scale-110`}
                             />
@@ -161,7 +152,7 @@ export default function Testimonials() {
 
                     {/* Testimonial text with enhanced typography */}
                     <p className="text-foreground mb-6 leading-relaxed flex-1 text-base group-hover:text-foreground/90 transition-colors duration-300">
-                      "{testimonial.text}"
+                      &ldquo;{testimonial.text}&rdquo;
                     </p>
 
                     {/* User info with avatar animation */}
@@ -171,7 +162,6 @@ export default function Testimonials() {
                         className="text-3xl relative"
                       >
                         {testimonial.avatar}
-                        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-cyan-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </motion.div>
                       <div>
                         <p className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors duration-300">

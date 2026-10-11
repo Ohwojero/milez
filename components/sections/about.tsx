@@ -60,8 +60,8 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-balance">
-            Who is<span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">Milez</span>?
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+            Who is <span className="text-primary">Milez</span>?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Meet Adams Miles Onome, a multi-talented entertainer revolutionizing digital comedy
@@ -114,8 +114,7 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="group relative bg-[url('/qqq.jpg')] hover:bg-[url('/www.jpg')] bg-cover bg-center rounded-2xl min-h-[500px] flex items-center justify-center transition-all duration-500"
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl" />
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rounded-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-2xl" />
             {/* Backdrop with Creative Text */}
             <div className="absolute bottom-4 left-4 glass dark:glass-dark rounded-xl p-4 backdrop-blur-xl border border-primary/20">
               <p className="text-white font-bold text-lg">Comedy Maestro</p>
@@ -134,10 +133,10 @@ export default function About() {
             From viral skits to premium collaborations, Milez Comedy continues to push boundaries and deliver world-class entertainment that resonates with millions worldwide.
           </p>
           <a
-            href="#social"
-            className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all duration-300 transform hover:scale-105"
+            href="#collaborate"
+            className="inline-block px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20"
           >
-            Follow & Connect
+            Connect &amp; Collaborate
           </a>
         </motion.div>
       </div>

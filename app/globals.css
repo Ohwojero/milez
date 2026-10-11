@@ -147,17 +147,9 @@
     border: 1px solid rgba(123, 47, 247, 0.2);
   }
   
-  /* Updated animated gradient with new color palette */
-  .gradient-animated {
-    background: linear-gradient(-45deg, #00D4FF, #0099FF, #6366F1, #00D4FF);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-  }
-  
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  /* Clean single-color ambient glow */
+  .glow-primary {
+    box-shadow: 0 0 50px -10px rgba(123, 47, 247, 0.35);
   }
 }
 

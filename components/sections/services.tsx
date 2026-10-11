@@ -105,8 +105,8 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-balance">
-            My <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">Services</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+            Professional <span className="text-primary">Services</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Professional services backed by years of experience in digital entertainment and comedy
@@ -144,7 +144,7 @@ export default function Services() {
                   >
                     <div className="flex flex-col items-center text-center space-y-4 h-full justify-center">
                       <motion.div
-                        className="w-16 h-16 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rounded-2xl flex items-center justify-center border border-primary/20"
+                        className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center border border-primary/20"
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ duration: 0.2 }}
                       >
@@ -156,9 +156,12 @@ export default function Services() {
                       <p className="text-foreground/70 leading-relaxed text-sm">
                         {service.description}
                       </p>
-                      <div className="mt-4 px-4 py-2 bg-primary/10 rounded-full">
-                        <span className="text-sm font-semibold text-primary">
+                      <div className="mt-4 flex items-center justify-between w-full px-1">
+                        <span className="text-xs font-semibold px-3 py-1 bg-primary/10 rounded-full text-primary">
                           {service.experience}
+                        </span>
+                        <span className="text-[11px] font-medium text-muted-foreground group-hover:text-primary transition-colors flex items-center gap-1">
+                          Tap to flip ↺
                         </span>
                       </div>
                     </div>
@@ -166,30 +169,30 @@ export default function Services() {
 
                   {/* Back of card */}
                   <div
-                    className="absolute inset-0 h-full w-full glass dark:glass-dark rounded-2xl p-6 border border-primary/10 backdrop-blur-xl"
+                    className="absolute inset-0 h-full w-full glass dark:glass-dark rounded-2xl p-6 border border-primary/20 backdrop-blur-xl"
                     style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                   >
                     <div className="flex flex-col items-center text-center space-y-4 h-full justify-center">
                       <motion.div
-                        className="w-16 h-16 bg-gradient-to-br from-accent/20 via-transparent to-primary/20 rounded-2xl flex items-center justify-center border border-accent/20"
+                        className="w-16 h-16 bg-primary/15 rounded-2xl flex items-center justify-center border border-primary/30"
                         whileHover={{ scale: 1.1, rotate: -5 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Icon className="w-8 h-8 text-accent" />
+                        <Icon className="w-8 h-8 text-primary" />
                       </motion.div>
-                      <h3 className="text-xl font-bold text-accent">
+                      <h3 className="text-xl font-bold text-primary">
                         What I Offer
                       </h3>
                       <ul className="text-foreground/80 leading-relaxed text-sm space-y-2">
                         {service.backContent.map((item, itemIdx) => (
                           <li key={itemIdx} className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" />
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
                             {item}
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-4 px-4 py-2 bg-accent/10 rounded-full">
-                        <span className="text-sm font-semibold text-accent">
+                      <div className="mt-4 px-4 py-2 bg-primary/10 rounded-full">
+                        <span className="text-sm font-semibold text-primary">
                           {service.experience}
                         </span>
                       </div>
@@ -211,11 +214,11 @@ export default function Services() {
           <div className="glass dark:glass-dark rounded-2xl p-8 md:p-12 border border-primary/20 backdrop-blur-xl">
             <h3 className="text-2xl font-bold mb-4">Ready to Collaborate?</h3>
             <p className="text-foreground/90 mb-6 max-w-2xl mx-auto">
-              Let's create something amazing together. Whether it's content creation, brand partnerships, or live performances, I'm here to bring your vision to life.
+              Let&apos;s create something amazing together. Whether it&apos;s content creation, brand partnerships, or live performances, I&apos;m here to bring your vision to life.
             </p>
             <a
-              href="#social"
-              className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all duration-300 transform hover:scale-105"
+              href="#collaborate"
+              className="inline-block px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20"
             >
               Get In Touch
             </a>
