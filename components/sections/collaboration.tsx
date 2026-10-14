@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Send, MessageCircle, CheckCircle, ArrowRight, ShieldCheck } from 'lucide-react'
+import { Send, MessageCircle, CheckCircle, ShieldCheck } from 'lucide-react'
 
 import { collaborationTypes, serviceOptions } from '@/lib/collaboration-data'
 
@@ -116,16 +116,6 @@ export default function Collaboration() {
                     ))}
                   </div>
                 </div>
-
-                {/* Quick Select Button */}
-                <button
-                  type="button"
-                  onClick={() => setSelectedService(item.service)}
-                  className="mt-6 w-full py-2.5 rounded-xl border border-border group-hover:border-primary/40 bg-muted/30 group-hover:bg-primary/10 text-foreground group-hover:text-primary text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer opacity-0 pointer-events-none"
-                  aria-label={`Select ${item.title}`}
-                >
-                  <span className="sr-only">Select {item.title}</span>
-                </button>
               </motion.div>
             )
           })}
